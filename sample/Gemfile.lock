@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     motion-screenspecs (0.0.1)
       chunky_png (~> 1.2.0)
@@ -12,6 +12,9 @@ GEM
     activesupport (3.2.16)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    afmotion (2.0.0)
+      motion-cocoapods (~> 1.4.0)
+      motion-require (~> 0.0.7)
     chunky_png (1.2.9)
     claide (0.4.0)
     cocoapods (0.29.0)
@@ -41,6 +44,7 @@ GEM
     motion-cocoapods (1.4.0)
       cocoapods (>= 0.26.2)
     motion-env (0.0.1)
+    motion-require (0.0.7)
     motion-screenshots (0.0.5)
       motion-cocoapods (~> 1.4.0)
     multi_json (1.8.4)
@@ -56,5 +60,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  afmotion
   motion-screenspecs!
   rake

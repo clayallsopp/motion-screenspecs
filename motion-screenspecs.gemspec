@@ -6,10 +6,10 @@ Gem::Specification.new do |spec|
   spec.version       = VERSION
   spec.authors       = ["Clay Allsopp"]
   spec.email         = ["clay.allsopp@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
-  spec.license       = ""
+  spec.description   = "Test your RubyMotion app regressions using screenshot comparison."
+  spec.summary       = "Test your RubyMotion app regressions using screenshot comparison."
+  spec.homepage      = "https://github.com/usepropeller/motion-screenspecs"
+  spec.license       = "MIT"
 
   files = []
   files << 'README.md'
@@ -19,6 +19,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'motion-screenshots', '~> 0.0.3'
+  spec.add_dependency 'motion-screenshots', '~> 0.0.5'
+  spec.add_dependency 'chunky_png', '~> 1.2.0'
+  spec.add_dependency 'motion-env', '~> 0.0.1'
   spec.add_development_dependency "rake"
 end
