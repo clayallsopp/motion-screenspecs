@@ -2,7 +2,7 @@
 
 Test your RubyMotion app regressions using screenshot comparison (similar to [Huxley](https://github.com/facebook/huxley) and [Wraith](https://github.com/BBC-News/wraith)):
 
-```bash
+```
 $ rake spec
 
 AppScreenshots
@@ -61,7 +61,7 @@ motion-screenspecs works in unison with [motion-screenshots](https://github.com/
 
 3. Add a call to `tests_screenshots` in your specs:
 
-    ``ruby
+    ```ruby
     describe "Screenshots" do
       tests_screenshots AppScreenshots
     end
