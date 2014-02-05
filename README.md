@@ -23,6 +23,10 @@ Bacon::Error: was 10.75%
 3 specifications (3 requirements), 1 failures, 0 errors
 ```
 
+![exampke](http://i.imgur.com/OQ0uJPU.png)
+
+(calculated diffs are truer than visual representation)
+
 ## Installation
 
 Add this line to your application's Gemfile:
