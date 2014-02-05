@@ -69,6 +69,22 @@ module Motion
       "spec/screenshots/#{screenshot_class}"
     end
 
+    def self.start_server!
+      # Start a web server to bounce file paths to-and-from the
+      # RubyMotion-CRuby barrier
+      @web_server ||= begin
+        server = WEBrick::HTTPServer.new(:Port => Motion::Screenspecs::PORT, :Logger => WEBrick::Log.new("/dev/null"), :AccessLog => [])
+        server.mount '/', Motion::Screenspecs::Servlet
+        at_exit {
+          server.shutdown
+        }
+        Thread.start do
+          server.start
+        end
+        server
+      end
+    end
+
     class Servlet < WEBrick::HTTPServlet::AbstractServlet
       def do_GET (request, response)
         if (title = request.query["title"]) &&
@@ -159,23 +175,14 @@ Motion::Project::App.setup do |app|
       pod 'KSScreenshotManager'
     end
 
-    # Start a web server to bounce file paths to-and-from the
-    # RubyMotion-CRuby barrier
-    web_server = WEBrick::HTTPServer.new(:Port => Motion::Screenspecs::PORT, :Logger => WEBrick::Log.new("/dev/null"), :AccessLog => [])
-    web_server.mount '/', Motion::Screenspecs::Servlet
+    Motion::Screenspecs.start_server!
 
     at_exit {
-      web_server.shutdown
-
       if Motion::Screenspecs.open_failures_at_exit?
         folder_path = Dir.glob('spec/**/failures').first
         `open #{folder_path.shellescape}` unless Motion::Screenspecs.failures.empty?
       end
     }
-
-    Thread.start do
-      web_server.start
-    end
 
     unless File.exist?('vendor/Pods/KSScreenshotManager')
       Rake::Task["pod:install"].invoke
