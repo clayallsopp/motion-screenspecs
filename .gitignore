@@ -15,4 +15,4 @@ nbproject
 .eprj
 .sass-cache
 .idea
-vendor/Pods
+vendor/Pods/
