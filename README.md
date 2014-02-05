@@ -2,7 +2,7 @@
 
 Test your RubyMotion app regressions using screenshot comparison (similar to [Huxley](https://github.com/facebook/huxley) and [Wraith](https://github.com/BBC-News/wraith)):
 
-```bash
+```
 $ rake spec
 
 AppScreenshots
@@ -22,6 +22,10 @@ Bacon::Error: was 10.75%
 
 3 specifications (3 requirements), 1 failures, 0 errors
 ```
+
+![exampke](http://i.imgur.com/OQ0uJPU.png)
+
+(calculated diffs are truer than visual representation)
 
 ## Installation
 
@@ -57,17 +61,19 @@ motion-screenspecs works in unison with [motion-screenshots](https://github.com/
 
     The images in `expectations` are known values for your app. You can take these screenshots manually or using motion-screenshots' `rake screenshots`.
 
-    Failing image diffs will be saved in `spec/screenshots/failures`. Hats off to [Jeff Kreeftmeijer](http://jeffkreeftmeijer.com/2011/comparing-images-and-creating-image-diffs/) for the image diffing help!
-
+    Failing image diffs will be saved in `spec/screenshots/[YourScreenshotSubclass]/failures`. All results from the latest test are saved to `spec/screenshots/[YourScreenshotSubclass]/results`.
+    
 3. Add a call to `tests_screenshots` in your specs:
 
-    ``ruby
+    ```ruby
     describe "Screenshots" do
       tests_screenshots AppScreenshots
     end
     ```
 
 The [sample app](sample) is a complete example with a failing test.
+
+Hats off to [Jeff Kreeftmeijer](http://jeffkreeftmeijer.com/2011/comparing-images-and-creating-image-diffs/) for the image diffing help!
 
 ## Configuration
 
