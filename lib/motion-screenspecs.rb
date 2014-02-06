@@ -107,9 +107,9 @@ module Motion
             (screenshot_class = request.query['screenshot_class'])
           screenshot_path.gsub!("file://", "")
           screenshots_root = Motion::Screenspecs.screenshots_root(screenshot_class)
-          expectation_path = File.join(screenshots_root, "expectations", "#{title}.png")
-          result_path = File.join(screenshots_root, "results", "#{title}.png")
-          failure_path = File.join(screenshots_root, "failures", "#{title}.png")
+          expectation_path = File.expand_path(File.join(screenshots_root, "expectations", "#{title}.png"))
+          result_path = File.expand_path(File.join(screenshots_root, "results", "#{title}.png"))
+          failure_path = File.expand_path(File.join(screenshots_root, "failures", "#{title}.png"))
           FileUtils.mkdir_p(File.dirname(failure_path))
           FileUtils.mkdir_p(File.dirname(result_path))
 
