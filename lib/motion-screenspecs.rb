@@ -165,7 +165,12 @@ module Motion
           end
         end
 
-        percent = (diff.inject {|sum, value| sum + value} / images.first.pixels.length) * 100
+        summed = diff.inject {|sum, value| sum + value}
+        if summed
+          percent = (summed / images.first.pixels.length) * 100
+        else
+          percent = 0
+        end
         if percent >= Motion::Screenspecs.tolerance
           output.save(failure_path)
           Motion::Screenspecs.failures << failure_path
