@@ -26,6 +26,21 @@ if is_spec_mode
     alias_method "spec_core_files_without_screenshots", "spec_core_files"
     alias_method "spec_core_files", "spec_core_files_with_screenshots"
   end
+
+  class Motion::Project::App
+    class << self
+      def build_with_screenspecs(platform, opts = {})
+        unless File.exist?('vendor/Pods/KSScreenshotManager')
+          Rake::Task["pod:install"].reenable
+          Rake::Task["pod:install"].invoke
+        end
+        build_without_screenspecs(platform, opts)
+      end
+
+      alias_method "build_without_screenspecs", "build"
+      alias_method "build", "build_with_screenspecs"
+    end
+  end
 end
 
 module Motion
@@ -183,9 +198,5 @@ Motion::Project::App.setup do |app|
         `open #{folder_path.shellescape}` unless Motion::Screenspecs.failures.empty?
       end
     }
-
-    unless File.exist?('vendor/Pods/KSScreenshotManager')
-      Rake::Task["pod:install"].invoke
-    end
   end
 end
