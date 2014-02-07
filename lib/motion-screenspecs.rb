@@ -6,7 +6,7 @@ require 'motion-screenshots'
 require 'motion-env'
 
 require 'webrick'
-require 'chunky_png'
+require 'oily_png'
 require 'fileutils'
 require 'shellwords'
 
