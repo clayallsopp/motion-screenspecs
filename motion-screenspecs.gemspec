@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.version       = VERSION
   spec.authors       = ["Clay Allsopp"]
   spec.email         = ["clay.allsopp@gmail.com"]
-  spec.description   = "Test your RubyMotion app regressions using screenshot comparison."
-  spec.summary       = "Test your RubyMotion app regressions using screenshot comparison."
+  spec.description   = "Test your RubyMotion apps using screenshot comparison."
+  spec.summary       = "Test your RubyMotion apps using screenshot comparison."
   spec.homepage      = "https://github.com/usepropeller/motion-screenspecs"
   spec.license       = "MIT"
 
