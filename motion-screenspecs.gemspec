@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-VERSION = "0.0.1"
+VERSION = "0.1.0"
 
 Gem::Specification.new do |spec|
   spec.name          = "motion-screenspecs"
@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency 'motion-screenshots', '~> 0.0.5'
+  spec.add_dependency 'motion-screenshots', '~> 0.1.0'
   spec.add_dependency 'oily_png', '~> 1.1.0'
   spec.add_dependency 'motion-env', '~> 0.0.1'
   spec.add_development_dependency "rake"
